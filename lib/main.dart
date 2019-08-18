@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:line_icons/line_icons.dart';
+import 'package:whatsappsend/ui/historial.dart';
+import 'package:whatsappsend/ui/home.dart';
+ 
 
 
 void main(){
@@ -10,7 +13,9 @@ void main(){
     statusBarIconBrightness: Brightness.dark
      
   ));  
-  runApp(MaterialApp(     
+  
+  runApp(MaterialApp( 
+    debugShowCheckedModeBanner: false,    
     home: MyHome(),
     ));
 }  
@@ -21,178 +26,46 @@ void main(){
  }
  
  class _MyHomeState extends State<MyHome> {
-  final TextEditingController numerotelefonico=TextEditingController();
-   final TextEditingController mensaje=TextEditingController();
-   final TextEditingController nombre=TextEditingController();
- final TextEditingController pais=TextEditingController();
+  int _currentIndex=0;
+  Widget callpage(int currentIndex){
+    switch (currentIndex) {
+      case 0:return Home();
+        case 1: return Historial();
+        //case 2: return Busqueda();
+        //case 3: return Estacion();
+        break;
+      default:return Home();
+    }
+  }
    @override
    Widget build(BuildContext context) {
-     return Scaffold(
-       backgroundColor: Colors.white,
-       resizeToAvoidBottomPadding: false,         
-        body: 
-            Stack(
-            children: <Widget>[
-              _cabecera(),
-              _cuentaenvio(),
-            ],
-        ),
-        
-     );
-     
-   } 
-   Widget _cabecera(){
-     return Positioned(
-       width: MediaQuery.of(context).size.width,
-       top: 40,
-       child: Container(
-        
-         child: Column(
-           children: <Widget>[
-               Image.asset('assets/home.png'),
-               SizedBox(
-                 height: 20,
-               ),
-              Text("Schat whatsapp",style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),),
-
-           ],
-         ),
-
-       ),
-     );
-   }   
-
-   Widget _cuentaenvio(){
-     return Positioned(
-       width: MediaQuery.of(context).size.width,
-       height: MediaQuery.of(context).size.height,
-            top: 160,
-       child: Container(
-            padding: EdgeInsets.only(left:40,right: 40),
-         child: Column(                 
+     return Scaffold(   
+      
+      resizeToAvoidBottomInset: false,    
+      body: callpage(_currentIndex),
+      backgroundColor: Colors.white,
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex:_currentIndex,
+        onTap: (value){
+          _currentIndex=value;
+            setState(() {
               
-            children: <Widget>[            
-              SizedBox(
-                height: 30,
-              ),
-              TextField(
-                controller: nombre,
-                decoration: InputDecoration(  
-                         border: OutlineInputBorder(
-                           borderRadius: BorderRadius.circular(20)
-                         ),
-                          hintText: 'nombre',
-                          
-                          ),
-              ) ,
-               SizedBox(
-                height: 20,
-              ),
-              Row(
-                children: <Widget>[
-                  Container(
-                    width: 60,
-                    child: TextField(
-                controller: pais,
-                decoration: InputDecoration(  
-                         border: OutlineInputBorder(
-                           borderRadius: BorderRadius.circular(20)
-                         ),
-                         
-                          hintText: '+51',
-                          
-                          ),
-              ) ,
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                 Expanded(                    
-                   child:   TextField(
-                controller: numerotelefonico,
-                decoration: InputDecoration(  
-                         border: OutlineInputBorder(
-                           borderRadius: BorderRadius.circular(20)
-                         ),
-                          hintText: 'Número de Celular',
-                          
-                          ),
-              ),
-                 )
-
-                
-                ],
-              ),
-               SizedBox(
-                height: 20,
-              ),
-              Row(
-                children: <Widget>[
-                  Expanded(
-                    child: TextField(
-                controller: mensaje,
-                decoration: InputDecoration(  
-                         border: OutlineInputBorder(
-                           borderRadius: BorderRadius.circular(20)
-                         ),
-                          hintText: 'Mensaje'
-                          ),
-              ),
-              
-                  ),
-                  SizedBox(
-                width: 10,
-              ),
-            
-              FloatingActionButton(
-                elevation: 1,
-                backgroundColor: Colors.greenAccent,
-                 child: Icon(Icons.send,color: Colors.white,),
-                onPressed: (){},
-              ),
-                 
-
-               
-                  
-                ],
-              ),
-               SizedBox(
-                height: 30,
-              ),
-              RaisedButton(
-                onPressed: 
-                  _launchURL,                
-                child: Text('ABRIR WHATSAPP',style: TextStyle(color: Colors.white),),
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-                color: Color.fromARGB(255, 33, 211, 124),
-              ),
-               SizedBox(
-                height: 30,
-              ),
-              RaisedButton(
-                onPressed: 
-                _borrartext,                
-                child: Text('BORRAR DATOS',style: TextStyle(color: Colors.white),),
-                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-                color: Colors.red,
-              )
-            ],
-          ),
-          )
-         
-     );
-   }
-   _launchURL() async {
-     
- var whatsappUrl ="whatsapp://send?phone=${numerotelefonico.text}&text=${mensaje.text}";
-await canLaunch(whatsappUrl)? launch(whatsappUrl):print("open whatsapp app link or do a snackbar with notification that there is no whatsapp installed");
-  _borrartext();
-}
-
-_borrartext(){
-  numerotelefonico.text="";
-  mensaje.text="";
-}
+            });
+        },
+        items: [  
+          BottomNavigationBarItem(icon: Icon(LineIcons.paper_plane),title:Text('enviar')),
+           BottomNavigationBarItem(icon: Icon(LineIcons.history),title: Text('guardados')),
+            //BottomNavigationBarItem(icon: Icon(Icons.search),title: Text('Buscar')),
+             //BottomNavigationBarItem(icon: Icon(Icons.search),title: Text('busqueda')),
+        ],
+      
+        fixedColor: Colors.black,        
+        backgroundColor: Colors.white,
+      ),
+    );
+  }
+ 
+  
 }
 
       
