@@ -17,7 +17,7 @@ class _HomeState extends State<Home> {
    final TextEditingController mensaje=TextEditingController();
    final TextEditingController nombre=TextEditingController();
  final TextEditingController pais=TextEditingController();
- String codigopais;
+ String codigopais="+51";
 
     void didUpdateWidget(Home oldWidget) {
     super.didUpdateWidget(oldWidget);

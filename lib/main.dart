@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:whatsappsend/ui/historial.dart';
 import 'package:whatsappsend/ui/home.dart';
+import 'package:whatsappsend/ui/status.dart';
  
 
 
@@ -31,7 +32,7 @@ void main(){
     switch (currentIndex) {
       case 0:return Home();
         case 1: return Historial();
-        //case 2: return Busqueda();
+        case 2: return Status();
         //case 3: return Estacion();
         break;
       default:return Home();
@@ -55,7 +56,7 @@ void main(){
         items: [  
           BottomNavigationBarItem(icon: Icon(LineIcons.paper_plane),title:Text('enviar')),
            BottomNavigationBarItem(icon: Icon(LineIcons.history),title: Text('guardados')),
-            //BottomNavigationBarItem(icon: Icon(Icons.search),title: Text('Buscar')),
+            BottomNavigationBarItem(icon: Icon(LineIcons.circle_o_notch),title: Text('estados')),
              //BottomNavigationBarItem(icon: Icon(Icons.search),title: Text('busqueda')),
         ],
       
