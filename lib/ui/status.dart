@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:line_icons/line_icons.dart';
 //import 'package:path_provider/path_provider.dart';
 import 'dart:io';
 
@@ -31,7 +32,7 @@ void initState(){
     @override
   Widget build(BuildContext context) {
     return Scaffold(
-     
+     backgroundColor: Colors.white,
       body: Stack(
         children: <Widget>[
           _cabecera(),
@@ -44,12 +45,23 @@ void initState(){
   Widget _cabecera(){
     return Positioned(
       top: 60,
+      width: MediaQuery.of(context).size.width,
       child:  
         Container(         
                padding: EdgeInsets.only(left:20,right: 20),  
                child:  Row(
         children: <Widget>[
-            Text("Estados",style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),),
+          Expanded(
+            child:  Text("Estados",style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),),
+          ),
+          InkWell(
+             splashColor:Colors.greenAccent, 
+            borderRadius: BorderRadius.all(Radius.circular(20)),  
+            child:   Icon(LineIcons.refresh,color: Colors.black,semanticLabel: "Actualizar",),
+            onTap: _getlocalfile,
+          )
+        
+           
          /* RaisedButton(onPressed: 
             _getlocalfile
            ,)*/
