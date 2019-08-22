@@ -27,9 +27,9 @@ dependencies:
   sqflite: ^1.1.6+3
   path_provider: ^1.2.0
   line_icons: ^0.2.0
-  country_code_picker: ^1.1.7
-   
+  country_code_picker: ^1.1.7   
   date_format: ^1.0.6
+  permission_handler: ^3.2.2
   
 dev_dependencies:
   flutter_test:

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
+import 'package:whatsappsend/model/permissions_service.dart';
 //import 'package:path_provider/path_provider.dart';
 import 'dart:io';
 
@@ -12,7 +13,7 @@ import 'package:whatsappsend/ui/viewimage.dart';
 class _StatusState extends State<Status> {
   List<FileSystemEntity> files;
   var imageList;
-  
+ 
   Future _getlocalfile()async{
  final _photodir=Directory('/storage/emulated/0/WhatsApp/Media/.Statuses');
    imageList = _photodir.listSync().map((item) => item.path).where((
@@ -25,6 +26,7 @@ class _StatusState extends State<Status> {
 @override
 void initState(){
   super.initState();
+  PermissionsService().requestStoradePermission();
   _getlocalfile();
 }
   
