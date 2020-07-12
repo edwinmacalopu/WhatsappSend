@@ -1,73 +1,36 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:line_icons/line_icons.dart';
-import 'package:whatsappsend/ui/historial.dart';
-import 'package:whatsappsend/ui/home.dart';
-import 'package:whatsappsend/ui/status.dart';
- 
+import 'package:hive/hive.dart';
+import 'package:whatsappsend/ui/navbar.dart';
+import 'package:path_provider/path_provider.dart' as path_provider;
 
+import 'model/contactwhat.dart';
 
-void main(){
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  final appDocumentDirectory =
+      await path_provider.getApplicationDocumentsDirectory();
+  Hive
+    ..init(appDocumentDirectory.path)
+    ..registerAdapter(ContactAdapter(), 0);
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-    systemNavigationBarColor: Colors.greenAccent, // navigation bar color
-    statusBarColor: Colors.white, // status bar color
-    statusBarIconBrightness: Brightness.dark
-     
-  ));  
-  
-  runApp(MaterialApp( 
-    debugShowCheckedModeBanner: false,    
-    home: MyHome(),
-    ));
-}  
- class MyHome extends StatefulWidget {
-   MyHome({Key key}) : super(key: key);
- 
-   _MyHomeState createState() => _MyHomeState();
- }
- 
- class _MyHomeState extends State<MyHome> {
-  int _currentIndex=0;
-  Widget callpage(int currentIndex){
-    switch (currentIndex) {
-      case 0:return Home();
-        case 1: return Historial();
-        case 2: return Status();
-        //case 3: return Estacion();
-        break;
-      default:return Home();
-    }
-  }
-   @override
-   Widget build(BuildContext context) {
-     return Scaffold(   
-      
-      resizeToAvoidBottomInset: false,    
-      body: callpage(_currentIndex),
-      backgroundColor: Colors.white,
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex:_currentIndex,
-        onTap: (value){
-          _currentIndex=value;
-            setState(() {
-              
-            });
-        },
-        items: [  
-          BottomNavigationBarItem(icon: Icon(LineIcons.paper_plane),title:Text('enviar')),
-           BottomNavigationBarItem(icon: Icon(LineIcons.history),title: Text('guardados')),
-            BottomNavigationBarItem(icon: Icon(LineIcons.circle_o_notch),title: Text('estados')),
-             //BottomNavigationBarItem(icon: Icon(Icons.search),title: Text('busqueda')),
-        ],
-      
-        fixedColor: Colors.black,        
-        backgroundColor: Colors.white,
-      ),
-    );
-  }
- 
-  
+      systemNavigationBarColor:
+          Color.fromARGB(255, 22, 219, 147), // navigation bar color
+      statusBarColor: Colors.white, // status bar color
+      statusBarIconBrightness: Brightness.dark));
+  runApp(MyApp());
 }
 
-      
-    
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      theme: ThemeData(
+          accentColor: Color.fromARGB(255, 22, 219, 147),
+          primaryColor: Color.fromARGB(255, 22, 219, 147)),
+      debugShowCheckedModeBanner: false,
+      title: 'Material App',
+      home: NavbarPage(),
+    );
+  }
+}

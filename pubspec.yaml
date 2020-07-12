@@ -14,7 +14,7 @@ description: A new Flutter project.
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.1.0 <3.0.0"
+  sdk: ">=2.2.2 <3.0.0"
 
 dependencies:
   flutter:
@@ -25,15 +25,19 @@ dependencies:
   cupertino_icons: ^0.1.2
   url_launcher: 4.0.0
   sqflite: ^1.1.6+3
+  hive: 1.2.0
+  hive_flutter: ^0.3.0+2
   path_provider: ^1.2.0
   line_icons: ^0.2.0
-  country_code_picker: ^1.1.7   
+  country_code_picker: ^1.4.0   
   date_format: ^1.0.6
   permission_handler: ^3.2.2
   
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  hive_generator:
+  build_runner:
 
 
 # For information on the generic Dart part of this file, see the
@@ -63,10 +67,10 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
+  fonts:
+   - family:  Iconswhapp
+     fonts:
+      - asset: fonts/Iconswhapp.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro
