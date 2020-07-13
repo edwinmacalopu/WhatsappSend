@@ -2,10 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:country_code_picker/country_code_picker.dart';
 import 'package:hive/hive.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:whatsappsend/bd/database.dart';
 import 'package:whatsappsend/model/contactwhat.dart';
-import 'package:whatsappsend/model/modelschat.dart';
-import 'package:date_format/date_format.dart';
+//import 'package:date_format/date_format.dart';
 import 'package:whatsappsend/iconswhapp_icons.dart';
 //import 'package:line_icons/line_icons.dart';
 
@@ -90,6 +88,7 @@ class _HomeState extends State<Home> {
                       ),
                       Expanded(
                         child: TextField(
+                          keyboardType:TextInputType.number,
                           controller: numerotelefonico,
                           decoration: InputDecoration(
                             contentPadding: EdgeInsets.symmetric(
@@ -159,18 +158,17 @@ class _HomeState extends State<Home> {
     contactbox.add(contact);
   }
 
-  _addhistory(String fechayhora) async {
+  /*_addhistory(String fechayhora) async {
     await ManagerDatabaseProvider.db.addManagerToDatabase(new Manager(
         nombre: nombre.text,
         numero: codigopais + numerotelefonico.text,
         fecha: fechayhora));
-  }
+  }*/
 
   _launchURL() async {
-    String date =
-        formatDate(DateTime.now(), [dd, '/', mm, '/', yyyy, ' ', HH, ':', nn]);
+    //String date =formatDate(DateTime.now(), [dd, '/', mm, '/', yyyy, ' ', HH, ':', nn]);
 
-    _addhistory(date);
+    //_addhistory(date);
 
     var whatsappUrl =
         "whatsapp://send?phone=${codigopais + numerotelefonico.text}&text=${mensaje.text}";
