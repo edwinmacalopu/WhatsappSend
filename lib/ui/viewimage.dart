@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'dart:io';
-import 'package:line_icons/line_icons.dart';
 class Viewimg extends StatefulWidget {
   final imgview;
   Viewimg(this.imgview);
@@ -46,7 +45,7 @@ class _ViewimgState extends State<Viewimg> {
       bottom: 30,
       right: 30,
       child: FloatingActionButton(
-        child: Icon(LineIcons.download,color: Colors.white,),
+        //child: Icon(LineIcons.download,color: Colors.white,),
          onPressed: (){},   
       )
              
