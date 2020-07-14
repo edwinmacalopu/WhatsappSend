@@ -8,7 +8,7 @@ class Saved extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Provider.of<ProviderHive>(context).getContact();
+     Provider.of<ProviderHive>(context).getContact();
     return SafeArea(
       child: Scaffold(
           backgroundColor: Colors.white,
@@ -27,7 +27,19 @@ class Saved extends StatelessWidget {
                 SizedBox(height: 20),
                 Expanded(
                   child: Container(
-                     child: Contactw(),
+                     child:Provider.of<ProviderHive>(context).contactCount==0?Center(
+                        child: Column(
+                         crossAxisAlignment: CrossAxisAlignment.center,
+                         mainAxisAlignment: MainAxisAlignment.center,
+                         children: <Widget>[
+                           Container(
+                        width: MediaQuery.of(context).size.width/1.8,
+                        child:Image.asset('assets/nofound.png')),
+                         SizedBox(height: 10),
+                         Text('No hay registros guardados',style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),)
+                         ],
+                       ),
+                     ):Contactw()
                     ),                   
                 )
               ],
@@ -35,12 +47,4 @@ class Saved extends StatelessWidget {
           )),
     );
   }
-
-  /* _launchURL(String numero) async {
-    var whatsappUrl = "whatsapp://send?phone=${numero.toString()}&text=${""}";
-    await canLaunch(whatsappUrl)
-        ? launch(whatsappUrl)
-        : print(
-            "open whatsapp app link or do a snackbar with notification that there is no whatsapp installed");
-  }*/
 }
