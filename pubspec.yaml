@@ -30,7 +30,7 @@ dependencies:
   path_provider: ^1.2.0
   country_code_picker: ^1.4.0   
   permission_handler: ^3.2.2
-  
+  image_gallery_saver: ^1.5.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
