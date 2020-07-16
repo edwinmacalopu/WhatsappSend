@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:whatsappsend/bloc/providerstatus.dart';
 import 'dart:io';
-
+import 'package:whatsappsend/generated/l10n.dart';
 import 'package:whatsappsend/iconswhapp_icons.dart';
 
 class Viewimg extends StatefulWidget {
@@ -13,8 +13,6 @@ class Viewimg extends StatefulWidget {
 }
 
 class _ViewimgState extends State<Viewimg> {
-  
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,7 +39,33 @@ class _ViewimgState extends State<Viewimg> {
                     ),
                   ));
             })),
-             
+            Consumer<ProviderStatus>(builder: (context, visicheck, widget) {
+              return visicheck.visiblecheck == true
+                  ? Center(
+                      child: Container(
+                      height: 200,
+                      width: MediaQuery.of(context).size.width / 1.5,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: Colors.white,
+                      ),
+                      padding: EdgeInsets.all(30),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Icon(Iconswhapp.check_circle,
+                              size: 50, color: Colors.green),
+                          SizedBox(height: 20),
+                          Text(S.of(context).alertmessage,
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold))
+                        ],
+                      ),
+                    ))
+                  : Container();
+            }),
           ],
         ));
   }
@@ -75,7 +99,6 @@ class _ViewimgState extends State<Viewimg> {
             Provider.of<ProviderStatus>(context, listen: false)
               ..visible = true
               ..saveimage(widget.imgview);
-            print("HOLA");
           },
         ));
   }

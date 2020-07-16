@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:whatsappsend/bloc/providehive.dart';
+import 'package:whatsappsend/generated/l10n.dart';
 import 'package:whatsappsend/widgets/contactwidget.dart';
 
 class Saved extends StatelessWidget {
@@ -21,7 +22,7 @@ class Saved extends StatelessWidget {
               children: <Widget>[
                 SizedBox(height: 20),
                 Text(
-                  "Historial",
+                  S.of(context).titlehome,
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
                 SizedBox(height: 20),
@@ -33,10 +34,10 @@ class Saved extends StatelessWidget {
                          mainAxisAlignment: MainAxisAlignment.center,
                          children: <Widget>[
                            Container(
-                        width: MediaQuery.of(context).size.width/1.8,
+                        width: MediaQuery.of(context).size.width/1.9,
                         child:Image.asset('assets/nofound.png')),
                          SizedBox(height: 10),
-                         Text('No hay registros guardados',style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),)
+                         Text(S.of(context).nullrecord,style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),)
                          ],
                        ),
                      ):Contactw()

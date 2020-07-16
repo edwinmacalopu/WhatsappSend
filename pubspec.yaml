@@ -19,6 +19,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -28,19 +30,17 @@ dependencies:
   hive_flutter: ^0.3.0+2
   provider: ^4.3.1
   path_provider: ^1.2.0
-  country_code_picker: ^1.4.0   
+  country_code_picker: ^1.4.0
   permission_handler: ^3.2.2
   image_gallery_saver: ^1.5.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  hive_generator:
-  build_runner:
-
+  hive_generator: null
+  build_runner: null
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
-
 # The following section is specific to Flutter.
 flutter:
 
@@ -51,24 +51,21 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-   - assets/
+    - assets/
   #  - images/a_dot_ham.jpeg
-
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
-
   # For details regarding adding assets from package dependencies, see
   # https://flutter.dev/assets-and-images/#from-packages
-
   # To add custom fonts to your application, add a fonts section here,
   # in this "flutter" section. Each entry in this list should have a
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-   - family:  Iconswhapp
-     fonts:
-      - asset: fonts/Iconswhapp.ttf
+    - family: Iconswhapp
+      fonts:
+        - asset: fonts/Iconswhapp.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro
@@ -79,3 +76,8 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+flutter_intl:
+  enabled: false
+  main_locale: en
+  class_name: S
+

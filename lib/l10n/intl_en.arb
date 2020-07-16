@@ -1,0 +1,11 @@
+{
+    "titlehome": "Record",
+    "titlestatus": "Status",
+    "textname": "name",
+    "textnumtel": "cell phone number",
+    "textmessage": "message",
+    "nullrecord": "No records saved",
+    "alertmessage": "Image saved in gallery"
+
+
+}

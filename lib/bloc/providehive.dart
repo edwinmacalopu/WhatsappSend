@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:whatsappsend/model/contactwhat.dart';
-
+import 'package:intl/intl.dart';
 class ProviderHive extends ChangeNotifier {
   TextEditingController name = TextEditingController();
   TextEditingController numbertel = TextEditingController();
@@ -14,7 +14,6 @@ class ProviderHive extends ChangeNotifier {
   int get codcountrys => codcountry;
   bool get buttonenable => _buttonenable;
   void changebutton(String value) {
-    print("========================" + value);
     if (value.length > 1) {
       _buttonenable = true;
     } else {
@@ -39,10 +38,13 @@ class ProviderHive extends ChangeNotifier {
   }
 
   int get contactCount => _contacts.length;
-
+  
   void saveContact() async {
     final newContact =
-        Contact(name.text, int.parse(codcountry.toString()+numbertel.text), DateTime.now());
+    Contact(
+      name.text.isEmpty?'sin nombre':name.text,
+       int.parse(codcountry.toString()+numbertel.text),
+       DateFormat("yyyy-MM-dd hh:mm:ss").parse(DateTime.now().toString()));
     addContact(newContact);
   }
 
@@ -51,14 +53,13 @@ class ProviderHive extends ChangeNotifier {
     await box.add(newContact);
     _contacts = box.values.toList();
     sendwhatsapp(codcountry.toString()+numbertel.text,message.text);
-    /*name.clear();
+    name.clear();
     numbertel.clear();
-    message.clear();*/
+    message.clear();
     notifyListeners();
   }
 
   void deleteContact(key) async {
-    print("===============" + key.toString());
     var box = await Hive.openBox<Contact>('contacts');
     await box.deleteAt(key);
     _contacts = box.values.toList();

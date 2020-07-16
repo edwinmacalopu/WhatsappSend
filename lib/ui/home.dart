@@ -3,7 +3,7 @@ import 'package:country_code_picker/country_code_picker.dart';
 import 'package:provider/provider.dart';
 import 'package:whatsappsend/bloc/providehive.dart';
 import 'package:whatsappsend/iconswhapp_icons.dart';
-
+import 'package:whatsappsend/generated/l10n.dart';
 class Home extends StatelessWidget {
   Home({Key key}) : super(key: key);
   @override
@@ -38,7 +38,7 @@ class Home extends StatelessWidget {
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(15)),
-                      hintText: 'nombre',
+                      hintText: S.of(context).textname,
                     ),
                   ),
                   SizedBox(
@@ -78,7 +78,7 @@ class Home extends StatelessWidget {
                               vertical: 15, horizontal: 15),
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(15)),
-                          hintText: 'Número de Celular',
+                          hintText: S.of(context).textnumtel,
                         ),
                       ))
                     ],
@@ -96,7 +96,7 @@ class Home extends StatelessWidget {
                             decoration: InputDecoration(
                                 border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(15)),
-                                hintText: 'Mensaje'),
+                                hintText:  S.of(context).textmessage),
                                 onChanged: (value) => logitude.changebutton(value),
                           );
                           

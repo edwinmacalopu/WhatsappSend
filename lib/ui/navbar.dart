@@ -45,7 +45,7 @@ class _NavbarPageState extends State<NavbarPage> {
         items: [
           BottomNavigationBarItem(
               icon: Icon(Iconswhapp.message), title: Text('')),
-          BottomNavigationBarItem(icon: Icon(Iconswhapp.save), title: Text('')),
+          BottomNavigationBarItem(icon: Icon(Iconswhapp.users_alt), title: Text('')),
           BottomNavigationBarItem(
               icon: Icon(Iconswhapp.circle), title: Text('')),
           //BottomNavigationBarItem(icon: Icon(Icons.search),title: Text('busqueda')),

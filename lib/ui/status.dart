@@ -5,7 +5,7 @@ import 'package:whatsappsend/model/permissions_service.dart';
 import 'package:whatsappsend/iconswhapp_icons.dart';
 import 'dart:io';
 import 'package:whatsappsend/ui/viewimage.dart';
-
+import 'package:whatsappsend/generated/l10n.dart';
 class Status extends StatefulWidget {
   @override
   _StatusState createState() => _StatusState();
@@ -37,9 +37,9 @@ class _StatusState extends State<Status> {
                     children: <Widget>[
                       Expanded(
                         child: Text(
-                          "Estados",
+                          S.of(context).titlestatus,
                           style: TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.bold),
+                              fontSize: 20, fontWeight: FontWeight.bold),
                         ),
                       ),
                       InkWell(
@@ -62,7 +62,21 @@ class _StatusState extends State<Status> {
                     child: Container(
                       child: Consumer<ProviderStatus>(
                           builder: (context, provimage, widget) {
-                        return GridView.builder(
+                        return provimage.imageList==null?Container(
+                     child: Center(
+                            child: Column(
+                           crossAxisAlignment: CrossAxisAlignment.center,
+                           mainAxisAlignment: MainAxisAlignment.center,
+                           children: <Widget>[
+                             Container(
+                          width: MediaQuery.of(context).size.width/1.9,
+                          child:Image.asset('assets/nostatus.png')),
+                           SizedBox(height: 10),
+                           Text('No hay images de los estados',style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),)
+                           ],
+                         ),
+                     ),
+                     ): GridView.builder(
                             itemCount: provimage.imageList == null
                                 ? 0
                                 : provimage.imageList.length,

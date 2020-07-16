@@ -8,11 +8,19 @@ class ProviderStatus extends ChangeNotifier {
   List<FileSystemEntity> files;
   var imageList;
   bool _visible = false;
-  bool _snackbar = false;
-  bool get snackbar => _snackbar;
-  set snackbar(bool snack) {
-    _snackbar = snack;
+  bool _visiblecheck = false;
+  bool get visiblecheck => _visiblecheck;
+  void displaycheck() {
+    _visiblecheck = true;
+    visiblecheck = false;
     notifyListeners();
+  }
+
+  set visiblecheck(bool vcheck) {
+    Future.delayed(Duration(seconds:2), () {
+      _visiblecheck = vcheck;
+      notifyListeners();
+    });
   }
 
   bool get visible => _visible;
@@ -45,7 +53,7 @@ class ProviderStatus extends ChangeNotifier {
     print(result);
     Future.delayed(Duration(seconds: 1), () {
       visible = false;
-      snackbar = true;
+      displaycheck();
     });
 
     ChangeNotifier();
