@@ -55,8 +55,6 @@ class ProviderStatus extends ChangeNotifier {
       visible = false;
       displaycheck();
     });
-
     ChangeNotifier();
-    //_onLoading(false,"If Image not available in gallary\n\nYou can find all images at");
   }
 }

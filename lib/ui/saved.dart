@@ -35,7 +35,7 @@ class Saved extends StatelessWidget {
                          children: <Widget>[
                            Container(
                         width: MediaQuery.of(context).size.width/1.9,
-                        child:Image.asset('assets/nofound.png')),
+                        child:const Image(image:AssetImage('assets/nofound.png'))),
                          SizedBox(height: 10),
                          Text(S.of(context).nullrecord,style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),)
                          ],

@@ -21,7 +21,6 @@ class _NavbarPageState extends State<NavbarPage> {
         return Saved();
       case 2:
         return Status();
-        //case 3: return Estacion();
         break;
       default:
         return Home();

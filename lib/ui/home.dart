@@ -14,6 +14,7 @@ class Home extends StatelessWidget {
           backgroundColor: Colors.white,
           resizeToAvoidBottomPadding: false,
           body: SingleChildScrollView(
+            scrollDirection: Axis.vertical,
             child: Container(
               padding: EdgeInsets.symmetric(horizontal: 20),
               child: Column(
@@ -21,12 +22,12 @@ class Home extends StatelessWidget {
                   Container(
                     height: 120,
                     width: 120,
-                    child: Image.asset('assets/home2.png'),
+                    child:const Image(image:AssetImage('assets/home2.png'))
                   ),
                   SizedBox(
                     height: 10,
                   ),
-                  Text(
+                  const Text(
                     "Schat whatsapp",
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                   ),

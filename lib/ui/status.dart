@@ -70,9 +70,9 @@ class _StatusState extends State<Status> {
                            children: <Widget>[
                              Container(
                           width: MediaQuery.of(context).size.width/1.9,
-                          child:Image.asset('assets/nostatus.png')),
+                          child:const Image(image:AssetImage('assets/nostatus.png'))),
                            SizedBox(height: 10),
-                           Text('No hay images de los estados',style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),)
+                           Text(S.of(context).nullstatus,style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),)
                            ],
                          ),
                      ),
@@ -82,7 +82,8 @@ class _StatusState extends State<Status> {
                                 : provimage.imageList.length,
                             gridDelegate:
                                 SliverGridDelegateWithFixedCrossAxisCount(
-                                    crossAxisCount: 2, crossAxisSpacing: 5),
+                                    crossAxisCount: 2, crossAxisSpacing: 5,mainAxisSpacing: 5
+                                    ),
                             itemBuilder: (BuildContext context, int index) {
                               String imgpatch = provimage.imageList[index];
                               return Container(

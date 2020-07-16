@@ -45,7 +45,7 @@ class MyApp extends StatelessWidget {
           S.delegate
         ],
         supportedLocales: S.delegate.supportedLocales,
-        title: 'Material App',
+        title: 'WhatsapppSend',
         home: NavbarPage(),
       ),
     );

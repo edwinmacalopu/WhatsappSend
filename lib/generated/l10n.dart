@@ -102,6 +102,16 @@ class S {
       args: [],
     );
   }
+
+  /// `There are no images of the states`
+  String get nullstatus {
+    return Intl.message(
+      'There are no images of the states',
+      name: 'nullstatus',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

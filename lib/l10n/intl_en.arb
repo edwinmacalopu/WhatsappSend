@@ -5,7 +5,8 @@
     "textnumtel": "cell phone number",
     "textmessage": "message",
     "nullrecord": "No records saved",
-    "alertmessage": "Image saved in gallery"
+    "alertmessage": "Image saved in gallery",
+    "nullstatus": "There are no images of the states"
 
 
 }
