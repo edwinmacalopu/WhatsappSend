@@ -27,4 +27,6 @@ class Iconswhapp {
   static const IconData trash_alt = IconData(0xe803, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData repeat = IconData(0xe804, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData image_download = IconData(0xe805, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData check_circle = IconData(0xe806, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData users_alt = IconData(0xe807, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }
