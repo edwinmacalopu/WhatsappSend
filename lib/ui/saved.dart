@@ -9,7 +9,7 @@ class Saved extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-     Provider.of<ProviderHive>(context).getContact();
+    //Provider.of<ProviderHive>(context).getContact();
     return SafeArea(
       child: Scaffold(
           backgroundColor: Colors.white,
@@ -27,21 +27,32 @@ class Saved extends StatelessWidget {
                 ),
                 SizedBox(height: 20),
                 Expanded(
-                  child: Container(
-                     child:Provider.of<ProviderHive>(context).contactCount==0?Center(
-                        child: Column(
-                         crossAxisAlignment: CrossAxisAlignment.center,
-                         mainAxisAlignment: MainAxisAlignment.center,
-                         children: <Widget>[
-                           Container(
-                        width: MediaQuery.of(context).size.width/1.9,
-                        child:const Image(image:AssetImage('assets/nofound.png'))),
-                         SizedBox(height: 10),
-                         Text(S.of(context).nullrecord,style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),)
-                         ],
-                       ),
-                     ):Contactw()
-                    ),                   
+                  child: Container(child: Consumer<ProviderHive>(
+                      builder: (context, contactprov, widget) {
+                    return contactprov.contactCount == 0
+                        ? Center(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                                Container(
+                                    width:
+                                        MediaQuery.of(context).size.width / 1.9,
+                                    child: const Image(
+                                        image:
+                                            AssetImage('assets/nofound.png'))),
+                                SizedBox(height: 10),
+                                Text(
+                                  S.of(context).nullrecord,
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold),
+                                )
+                              ],
+                            ),
+                          )
+                        : Contactw();
+                  })),
                 )
               ],
             ),

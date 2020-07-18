@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => ProviderHive()),
+        ChangeNotifierProvider(create: (_) => ProviderHive()..getContact()),
         ChangeNotifierProvider(create: (_) => ProviderStatus())
       ],
       child: MaterialApp(

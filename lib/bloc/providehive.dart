@@ -8,7 +8,6 @@ class ProviderHive extends ChangeNotifier {
   TextEditingController numbertel = TextEditingController();
   TextEditingController message = TextEditingController();
   bool _buttonenable = false;
-
   int codcountry = 51;
   List<Contact> _contacts = [];
   int get codcountrys => codcountry;
