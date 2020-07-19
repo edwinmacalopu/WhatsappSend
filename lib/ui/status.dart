@@ -6,7 +6,7 @@ import 'package:whatsappsend/generated/l10n.dart';
 import 'package:whatsappsend/widgets/listphotos.dart';
 
 class Status extends StatelessWidget {
- Status({Key key}) : super(key: key);
+  Status({Key key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -29,17 +29,25 @@ class Status extends StatelessWidget {
                               fontSize: 20, fontWeight: FontWeight.bold),
                         ),
                       ),
-                      InkWell(
-                        splashColor: Colors.greenAccent,
-                        borderRadius: BorderRadius.all(Radius.circular(20)),
-                        child: Icon(
-                          Iconswhapp.repeat,
-                          color: Colors.black,
-                          semanticLabel: "Actualizar",
-                        ),
-                        onTap: () {
-                          Provider.of<ProviderStatus>(context, listen: false)
-                              .getlocalfile();
+                      Consumer<ProviderStatus>(
+                        builder: (context, statrage, widget) {
+                          return statrage.statuspermstorage == true
+                              ? InkWell(
+                                  splashColor: Colors.greenAccent,
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(20)),
+                                  child: Icon(
+                                    Iconswhapp.repeat,
+                                    color: Colors.black,
+                                    semanticLabel: "Actualizar",
+                                  ),
+                                  onTap: () {
+                                    Provider.of<ProviderStatus>(context,
+                                            listen: false)
+                                        .getlocalfile();
+                                  },
+                                )
+                              : Container();
                         },
                       )
                     ],
@@ -76,7 +84,7 @@ class Status extends StatelessWidget {
                                     ),
                                     SizedBox(height: 10),
                                     RaisedButton(
-                                        onPressed: ()async{
+                                        onPressed: () async {
                                           Provider.of<ProviderStatus>(context,
                                                   listen: false)
                                               .grandPermissionStorage();
