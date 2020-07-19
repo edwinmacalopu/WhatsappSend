@@ -112,6 +112,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Permission to read the states and save the images`
+  String get permission {
+    return Intl.message(
+      'Permission to read the states and save the images',
+      name: 'permission',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Grant permission`
+  String get buttonpermision {
+    return Intl.message(
+      'Grant permission',
+      name: 'buttonpermision',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

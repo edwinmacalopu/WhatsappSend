@@ -3,6 +3,7 @@ import 'package:hive/hive.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:whatsappsend/model/contactwhat.dart';
 import 'package:intl/intl.dart';
+
 class ProviderHive extends ChangeNotifier {
   TextEditingController name = TextEditingController();
   TextEditingController numbertel = TextEditingController();
@@ -37,13 +38,12 @@ class ProviderHive extends ChangeNotifier {
   }
 
   int get contactCount => _contacts.length;
-  
+
   void saveContact() async {
-    final newContact =
-    Contact(
-      name.text.isEmpty?'sin nombre':name.text,
-       int.parse(codcountry.toString()+numbertel.text),
-       DateFormat("yyyy-MM-dd hh:mm:ss").parse(DateTime.now().toString()));
+    final newContact = Contact(
+        name.text.isEmpty ? 'sin nombre' : name.text,
+        int.parse(codcountry.toString() + numbertel.text),
+        DateFormat("yyyy-MM-dd hh:mm:ss").parse(DateTime.now().toString()));
     addContact(newContact);
   }
 
@@ -51,7 +51,7 @@ class ProviderHive extends ChangeNotifier {
     var box = await Hive.openBox<Contact>('contacts');
     await box.add(newContact);
     _contacts = box.values.toList();
-    sendwhatsapp(codcountry.toString()+numbertel.text,message.text);
+    sendwhatsapp(codcountry.toString() + numbertel.text, message.text);
     name.clear();
     numbertel.clear();
     message.clear();
@@ -65,12 +65,13 @@ class ProviderHive extends ChangeNotifier {
     notifyListeners();
   }
 
-  void sendwhatsapp(String number,String message) async {
-    var whatsappUrl =
-        "whatsapp://send?phone=$number&text=$message";
+  void sendwhatsapp(String number, String message) async {
+    var whatsappUrl = "whatsapp://send?phone=$number&text=$message";
     await canLaunch(whatsappUrl)
         ? launch(whatsappUrl)
         : print(
             "open whatsapp app link or do a snackbar with notification that there is no whatsapp installed");
   }
+
+  
 }

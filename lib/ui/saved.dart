@@ -9,7 +9,6 @@ class Saved extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //Provider.of<ProviderHive>(context).getContact();
     return SafeArea(
       child: Scaffold(
           backgroundColor: Colors.white,

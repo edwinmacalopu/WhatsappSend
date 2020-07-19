@@ -31,7 +31,7 @@ dependencies:
   provider: ^4.3.1
   path_provider: ^1.2.0
   country_code_picker: ^1.4.0
-  permission_handler: ^3.2.2
+  permission_handler: ^5.0.1+1
   image_gallery_saver: ^1.5.0
 dev_dependencies:
   flutter_test:
@@ -77,7 +77,7 @@ flutter:
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
 flutter_intl:
-  enabled: false
+  enabled: true
   main_locale: en
   class_name: S
 

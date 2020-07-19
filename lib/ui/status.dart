@@ -1,27 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:whatsappsend/bloc/providerstatus.dart';
-import 'package:whatsappsend/model/permissions_service.dart';
 import 'package:whatsappsend/iconswhapp_icons.dart';
-import 'dart:io';
-import 'package:whatsappsend/ui/viewimage.dart';
 import 'package:whatsappsend/generated/l10n.dart';
-class Status extends StatefulWidget {
-  @override
-  _StatusState createState() => _StatusState();
-}
+import 'package:whatsappsend/widgets/listphotos.dart';
 
-class _StatusState extends State<Status> {
-  
-  @override
-  void initState() {
-    super.initState();
-    PermissionsService().requestStoradePermission();
-  }
-
+class Status extends StatelessWidget {
+ Status({Key key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    Provider.of<ProviderStatus>(context).getlocalfile();
     return SafeArea(
       child: Scaffold(
           backgroundColor: Colors.white,
@@ -59,54 +46,52 @@ class _StatusState extends State<Status> {
                   ),
                   SizedBox(height: 20),
                   Expanded(
-                    child: Container(
-                      child: Consumer<ProviderStatus>(
-                          builder: (context, provimage, widget) {
-                        return provimage.imageList==null?Container(
-                     child: Center(
-                            child: Column(
-                           crossAxisAlignment: CrossAxisAlignment.center,
-                           mainAxisAlignment: MainAxisAlignment.center,
-                           children: <Widget>[
-                             Container(
-                          width: MediaQuery.of(context).size.width/1.9,
-                          child:const Image(image:AssetImage('assets/nostatus.png'))),
-                           SizedBox(height: 10),
-                           Text(S.of(context).nullstatus,style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),)
-                           ],
-                         ),
-                     ),
-                     ): GridView.builder(
-                            itemCount: provimage.imageList == null
-                                ? 0
-                                : provimage.imageList.length,
-                            gridDelegate:
-                                SliverGridDelegateWithFixedCrossAxisCount(
-                                    crossAxisCount: 2, crossAxisSpacing: 5,mainAxisSpacing: 5
-                                    ),
-                            itemBuilder: (BuildContext context, int index) {
-                              String imgpatch = provimage.imageList[index];
-                              return Container(
-                                child: InkWell(
-                                    child: Hero(
-                                      tag: imgpatch,
-                                      child: Image.file(
-                                        File(imgpatch),
-                                        fit: BoxFit.cover,
+                    child: Container(child: Consumer<ProviderStatus>(
+                      builder: (context, statusStorage, widget) {
+                        return statusStorage.statuspermstorage == true
+                            ? ListPhotos()
+                            : Center(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: <Widget>[
+                                    Container(
+                                        width:
+                                            MediaQuery.of(context).size.width /
+                                                1.9,
+                                        child: const Image(
+                                            image: AssetImage(
+                                                'assets/permission.png'))),
+                                    SizedBox(height: 10),
+                                    Container(
+                                      padding:
+                                          EdgeInsets.symmetric(horizontal: 50),
+                                      child: Text(
+                                        S.of(context).permission,
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.bold),
                                       ),
                                     ),
-                                    onTap: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                Viewimg(imgpatch)),
-                                      );
-                                    }),
+                                    SizedBox(height: 10),
+                                    RaisedButton(
+                                        onPressed: ()async{
+                                          Provider.of<ProviderStatus>(context,
+                                                  listen: false)
+                                              .grandPermissionStorage();
+                                        },
+                                        color:
+                                            Color.fromARGB(255, 22, 219, 147),
+                                        child: Text(
+                                          S.of(context).buttonpermision,
+                                          style: TextStyle(color: Colors.white),
+                                        ))
+                                  ],
+                                ),
                               );
-                            });
-                      }),
-                    ),
+                      },
+                    )),
                   )
                 ],
               ))),

@@ -3,12 +3,20 @@ import 'dart:typed_data';
 
 import 'package:flutter/cupertino.dart';
 import 'package:image_gallery_saver/image_gallery_saver.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 class ProviderStatus extends ChangeNotifier {
   List<FileSystemEntity> files;
   var imageList;
   bool _visible = false;
   bool _visiblecheck = false;
+  bool _statuspermstorage = false;
+  bool get statuspermstorage => _statuspermstorage;
+  set statuspermstorage(bool status) {
+    _statuspermstorage = status;
+    notifyListeners();
+  }
+
   bool get visiblecheck => _visiblecheck;
   void displaycheck() {
     _visiblecheck = true;
@@ -17,7 +25,7 @@ class ProviderStatus extends ChangeNotifier {
   }
 
   set visiblecheck(bool vcheck) {
-    Future.delayed(Duration(seconds:2), () {
+    Future.delayed(Duration(seconds: 2), () {
       _visiblecheck = vcheck;
       notifyListeners();
     });
@@ -56,5 +64,24 @@ class ProviderStatus extends ChangeNotifier {
       displaycheck();
     });
     ChangeNotifier();
+  }
+
+  void getPermissionStorage() async {
+    var status = await Permission.storage.status;
+    if (status.isGranted) {
+      statuspermstorage = true;
+    } else {
+      statuspermstorage = false;
+    }
+    notifyListeners();
+  }
+
+  void grandPermissionStorage() async {
+    var status = await Permission.storage.request();
+    if (status.isGranted) {
+      statuspermstorage = true;
+    } else {
+      statuspermstorage = false;
+    }
   }
 }

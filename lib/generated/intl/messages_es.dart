@@ -21,9 +21,11 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
-    "alertmessage" : MessageLookupByLibrary.simpleMessage("Image guardado en galeria"),
+    "alertmessage" : MessageLookupByLibrary.simpleMessage("Imagen guardada en galeria"),
+    "buttonpermision" : MessageLookupByLibrary.simpleMessage("Otorgar permiso"),
     "nullrecord" : MessageLookupByLibrary.simpleMessage("No hay registros guardados"),
     "nullstatus" : MessageLookupByLibrary.simpleMessage("No hay imágenes de los estados"),
+    "permission" : MessageLookupByLibrary.simpleMessage("Permiso para leer los estados y guardar las imágenes"),
     "textmessage" : MessageLookupByLibrary.simpleMessage("mensaje"),
     "textname" : MessageLookupByLibrary.simpleMessage("nombre"),
     "textnumtel" : MessageLookupByLibrary.simpleMessage("número de celular"),

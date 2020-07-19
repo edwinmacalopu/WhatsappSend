@@ -6,7 +6,7 @@
     "textmessage": "message",
     "nullrecord": "No records saved",
     "alertmessage": "Image saved in gallery",
-    "nullstatus": "There are no images of the states"
-
-
+    "nullstatus": "There are no images of the states",
+    "permission": "Permission to read the states and save the images",
+    "buttonpermision": "Grant permission"
 }

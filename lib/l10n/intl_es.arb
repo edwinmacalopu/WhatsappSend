@@ -5,6 +5,8 @@
     "textnumtel": "número de celular",
     "textmessage": "mensaje",
     "nullrecord": "No hay registros guardados",
-    "alertmessage": "Image guardado en galeria",
-    "nullstatus": "No hay imágenes de los estados"
+    "alertmessage": "Imagen guardada en galeria",
+    "nullstatus": "No hay imágenes de los estados",
+    "permission": "Permiso para leer los estados y guardar las imágenes",
+    "buttonpermision": "Otorgar permiso"
 }

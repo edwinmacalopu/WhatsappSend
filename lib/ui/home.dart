@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:whatsappsend/bloc/providehive.dart';
 import 'package:whatsappsend/iconswhapp_icons.dart';
 import 'package:whatsappsend/generated/l10n.dart';
+
 class Home extends StatelessWidget {
   Home({Key key}) : super(key: key);
   @override
@@ -20,10 +21,10 @@ class Home extends StatelessWidget {
               child: Column(
                 children: <Widget>[
                   Container(
-                    height: 120,
-                    width: 120,
-                    child:const Image(image:AssetImage('assets/home2.png'))
-                  ),
+                      height: 120,
+                      width: 120,
+                      child:
+                          const Image(image: AssetImage('assets/home2.png'))),
                   SizedBox(
                     height: 10,
                   ),
@@ -97,10 +98,9 @@ class Home extends StatelessWidget {
                             decoration: InputDecoration(
                                 border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(15)),
-                                hintText:  S.of(context).textmessage),
-                                onChanged: (value) => logitude.changebutton(value),
+                                hintText: S.of(context).textmessage),
+                            onChanged: (value) => logitude.changebutton(value),
                           );
-                          
                         }),
                       ),
                       SizedBox(
