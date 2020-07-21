@@ -23,6 +23,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static _notInlinedMessages(_) => <String, Function> {
     "alertmessage" : MessageLookupByLibrary.simpleMessage("Imagen guardada en galeria"),
     "buttonpermision" : MessageLookupByLibrary.simpleMessage("Otorgar permiso"),
+    "buttonsend" : MessageLookupByLibrary.simpleMessage("Enviar whatsapp"),
     "nullrecord" : MessageLookupByLibrary.simpleMessage("No hay registros guardados"),
     "nullstatus" : MessageLookupByLibrary.simpleMessage("No hay imágenes de los estados"),
     "permission" : MessageLookupByLibrary.simpleMessage("Permiso para leer los estados y guardar las imágenes"),

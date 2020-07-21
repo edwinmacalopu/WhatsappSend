@@ -35,8 +35,7 @@ class Home extends StatelessWidget {
                               image: AssetImage('assets/home2.png'))),
                       const Text(
                         "Schat whatsapp",
-                        style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.bold),
+                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                       ),
                     ],
                   ),
@@ -58,7 +57,7 @@ class Home extends StatelessWidget {
                         child: CountryCodePicker(
                           onChanged: (prints) {
                             hprovid.codcountrys =
-                          (int.parse(prints.toString()));
+                                (int.parse(prints.toString()));
                           },
                           initialSelection: 'PE',
                           favorite: ['+51', 'PE'],
@@ -67,7 +66,7 @@ class Home extends StatelessWidget {
                           alignLeft: false,
                         ),
                       ),
-                      Icon(Icons.arrow_drop_down,color: Colors.black45),
+                      Icon(Icons.arrow_drop_down, color: Colors.black45),
                       SizedBox(
                         width: 10,
                       ),
@@ -126,12 +125,12 @@ class Home extends StatelessWidget {
                           onPressed: boton.buttonenable == false
                               ? null
                               : boton.saveContact,
-                              disabledColor:Colors.grey.withOpacity(0.3),
-                              textColor: Colors.white,
+                          disabledColor: Colors.grey.withOpacity(0.3),
+                          textColor: Colors.white,
                           color: boton.buttonenable == false
                               ? Colors.grey.withOpacity(0.2)
                               : Color.fromARGB(255, 22, 219, 147),
-                          child: Text('Enviar whatsapp')),
+                          child: Text(S.of(context).buttonsend)),
                     );
                   }),
                   SizedBox(

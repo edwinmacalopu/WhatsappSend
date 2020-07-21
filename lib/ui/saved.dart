@@ -44,7 +44,6 @@ class Saved extends StatelessWidget {
                                 Text(
                                   S.of(context).nullrecord,
                                   style: TextStyle(
-                                      color: Colors.black,
                                       fontWeight: FontWeight.bold),
                                 )
                               ],

@@ -8,5 +8,6 @@
     "alertmessage": "Image saved in gallery",
     "nullstatus": "There are no images of the states",
     "permission": "Permission to read the states and save the images",
-    "buttonpermision": "Grant permission"
+    "buttonpermision": "Grant permission",
+    "buttonsend": "Send whatsapp"
 }

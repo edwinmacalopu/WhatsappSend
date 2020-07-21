@@ -8,5 +8,6 @@
     "alertmessage": "Imagen guardada en galeria",
     "nullstatus": "No hay imágenes de los estados",
     "permission": "Permiso para leer los estados y guardar las imágenes",
-    "buttonpermision": "Otorgar permiso"
+    "buttonpermision": "Otorgar permiso",
+    "buttonsend": "Enviar whatsapp"
 }

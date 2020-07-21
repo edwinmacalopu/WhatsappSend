@@ -69,10 +69,8 @@ class ProviderStatus extends ChangeNotifier {
   void getPermissionStorage() async {
     var status = await Permission.storage.status;
     if (status.isGranted) {
-      print("========================true");
       statuspermstorage = true;
     } else {
-       print("========================false");
       statuspermstorage = false;
     }
     notifyListeners();

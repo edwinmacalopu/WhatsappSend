@@ -132,6 +132,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Send whatsapp`
+  String get buttonsend {
+    return Intl.message(
+      'Send whatsapp',
+      name: 'buttonsend',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => ProviderStatus())
       ],
       child: MaterialApp(
-        theme: ThemeData(
+         theme: ThemeData(
             accentColor: Color.fromARGB(255, 22, 219, 147),
             primaryColor: Color.fromARGB(255, 22, 219, 147)
             ),

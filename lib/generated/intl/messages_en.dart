@@ -23,6 +23,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static _notInlinedMessages(_) => <String, Function> {
     "alertmessage" : MessageLookupByLibrary.simpleMessage("Image saved in gallery"),
     "buttonpermision" : MessageLookupByLibrary.simpleMessage("Grant permission"),
+    "buttonsend" : MessageLookupByLibrary.simpleMessage("Send whatsapp"),
     "nullrecord" : MessageLookupByLibrary.simpleMessage("No records saved"),
     "nullstatus" : MessageLookupByLibrary.simpleMessage("There are no images of the states"),
     "permission" : MessageLookupByLibrary.simpleMessage("Permission to read the states and save the images"),
