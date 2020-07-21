@@ -20,6 +20,7 @@ class _NavbarPageState extends State<NavbarPage> {
       case 1:
         return Saved();
       case 2:
+      
         return Status();
         break;
       default:
@@ -29,6 +30,7 @@ class _NavbarPageState extends State<NavbarPage> {
 
   @override
   Widget build(BuildContext context) {
+ 
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: callpage(_currentIndex),

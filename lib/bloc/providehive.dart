@@ -71,7 +71,7 @@ class ProviderHive extends ChangeNotifier {
         ? launch(whatsappUrl)
         : print(
             "open whatsapp app link or do a snackbar with notification that there is no whatsapp installed");
+    _buttonenable = false;
+    notifyListeners();
   }
-
-  
 }

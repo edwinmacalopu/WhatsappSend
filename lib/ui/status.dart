@@ -9,7 +9,7 @@ class Status extends StatelessWidget {
   Status({Key key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+      return SafeArea(
       child: Scaffold(
           backgroundColor: Colors.white,
           body: Container(

@@ -36,7 +36,8 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         theme: ThemeData(
             accentColor: Color.fromARGB(255, 22, 219, 147),
-            primaryColor: Color.fromARGB(255, 22, 219, 147)),
+            primaryColor: Color.fromARGB(255, 22, 219, 147)
+            ),
         debugShowCheckedModeBanner: false,
         localizationsDelegates: [
           GlobalMaterialLocalizations.delegate,
