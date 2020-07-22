@@ -21,6 +21,8 @@ class ListPhotos extends StatelessWidget {
                            children: <Widget>[
                              Container(
                           width: MediaQuery.of(context).size.width/1.9,
+                          height: MediaQuery.of(context).size.width /
+                                                1.9,
                           child:const Image(image:AssetImage('assets/nostatus.png'))),
                            SizedBox(height: 10),
                            Text(S.of(context).nullstatus,style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),)

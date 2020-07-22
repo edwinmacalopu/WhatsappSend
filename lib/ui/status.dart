@@ -62,11 +62,12 @@ class Status extends StatelessWidget {
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   mainAxisAlignment: MainAxisAlignment.center,
-                                  children: <Widget>[
+                                  children: <Widget>[                                                   
                                     Container(
                                         width:
                                             MediaQuery.of(context).size.width /
                                                 1.9,
+                                        
                                         child: const Image(
                                             image: AssetImage(
                                                 'assets/permission.png'))),

@@ -20,7 +20,6 @@ class _NavbarPageState extends State<NavbarPage> {
       case 1:
         return Saved();
       case 2:
-      
         return Status();
         break;
       default:
@@ -28,9 +27,25 @@ class _NavbarPageState extends State<NavbarPage> {
     }
   }
 
+  Image myImage1, myImage2, myImage3;
+
   @override
+  void initState() {
+    super.initState();
+    myImage1 = Image.asset('assets/nostatus.png');
+    myImage2 = Image.asset('assets/permission.png');
+    myImage3 = Image.asset('assets/nofound.png');
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    precacheImage(myImage1.image, context);
+    precacheImage(myImage2.image, context);
+    precacheImage(myImage3.image, context);
+  }
+
   Widget build(BuildContext context) {
- 
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: callpage(_currentIndex),
@@ -46,7 +61,8 @@ class _NavbarPageState extends State<NavbarPage> {
         items: [
           BottomNavigationBarItem(
               icon: Icon(Iconswhapp.message), title: Text('')),
-          BottomNavigationBarItem(icon: Icon(Iconswhapp.users_alt), title: Text('')),
+          BottomNavigationBarItem(
+              icon: Icon(Iconswhapp.users_alt), title: Text('')),
           BottomNavigationBarItem(
               icon: Icon(Iconswhapp.circle), title: Text('')),
           //BottomNavigationBarItem(icon: Icon(Icons.search),title: Text('busqueda')),
